@@ -1,11 +1,11 @@
-import Converter from './components/Converter'
+import ConverterWrapper from './components/ConverterWrapper'
 import './App.scss'
 
 function App() {
 
   return (
     <>
-    {/* <Converter /> */}
+      <ConverterWrapper />
     </>
   )
 }
