@@ -1,28 +1,34 @@
-import { useState, useEffect } from 'react';
-import { metersConverter } from '../utils/converterFormules';
+import { useState, useEffect } from "react";
 
 interface ConverterProps {
-    unit: string;
-    fn: (value: number) => number;
+  baseUnit: string;
+  transformedUnit: string;
+  fn: (value: number) => number;
 }
 
-function Converter() {
+function Converter({ baseUnit, transformedUnit, fn }: ConverterProps) {
+  const [unit, setUnit] = useState<number>(0);
+  const [convertedUnit, setConvertedUnit] = useState<number>(0);
 
-    const [unit, setUnit] = useState<number>(0);
-    const [convertedUnit, setConvertedUnit] = useState<number>(0);
+  useEffect(() => {
+    setConvertedUnit(fn(unit));
+  }, [unit, fn]);
 
-    useEffect(() => {
-        setConvertedUnit(metersConverter(unit));
-    }, [unit]);
-
-    return (  
-        <div>
-            <label htmlFor="unit">
-                <input type="number" id="unit" name="unit" onChange={(e) => setUnit(Number(e.target.value))}/>
-            </label>
-            <p>{convertedUnit}</p>
-        </div>
-    );
+  return (
+    <div>
+      <label htmlFor={baseUnit}>
+        <input
+          type='number'
+          id={baseUnit}
+          name={baseUnit}
+          onChange={e => setUnit(Number(e.target.value))}
+        />
+      </label>
+      <p>
+        {convertedUnit} {transformedUnit}
+      </p>
+    </div>
+  );
 }
 
 export default Converter;
