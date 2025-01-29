@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import useConverter from "../hooks/useConverter";
 
 interface ConverterProps {
   title: string;
@@ -8,12 +8,7 @@ interface ConverterProps {
 }
 
 function Converter({ title, baseUnit, transformedUnit, fn }: ConverterProps) {
-  const [unit, setUnit] = useState<number>(0);
-  const [convertedUnit, setConvertedUnit] = useState<number>(0);
-
-  useEffect(() => {
-    setConvertedUnit(fn(unit));
-  }, [unit, fn]);
+  const { setUnit, convertedUnit } = useConverter(fn);
 
   return (
     <div>
