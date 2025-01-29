@@ -1,9 +1,9 @@
 import Converter from "./Converter";
 import {
-  metersConverter,
-  kiloMetersConverter,
+  altitudeConverter,
+  distanceConverter,
   speedConverter,
-} from "../utils/converterFormules";
+} from "../utils/converterFormulas";
 
 function ConverterWrapper() {
   return (
@@ -14,13 +14,13 @@ function ConverterWrapper() {
           title='Feet'
           baseUnit='feet'
           transformedUnit='m'
-          fn={metersConverter}
+          fn={altitudeConverter}
         />
         <Converter
           title='Nautical Miles'
           baseUnit='nauticalMiles'
           transformedUnit='km'
-          fn={kiloMetersConverter}
+          fn={distanceConverter}
         />
         <Converter
           title='Knots'
