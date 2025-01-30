@@ -19,6 +19,7 @@ function Converter({ title, name, baseUnit, transformedUnit, fn }: ConverterProp
           type='number'
           id={baseUnit}
           name={name}
+          defaultValue={0}
           onChange={e => setUnit(Number(e.target.value))}
         />
         {baseUnit}
