@@ -11,22 +11,25 @@ function ConverterWrapper() {
       <h1>Flight Unit Converter</h1>
       <div>
         <Converter
-          title='Feet'
-          baseUnit='feet'
+          title='Speed'
+          name="knots"
+          baseUnit='kts'
+          transformedUnit='km/h'
+          fn={speedConverter}
+        />
+        <Converter
+          title='Altitude'
+          name="feet"
+          baseUnit='ft'
           transformedUnit='m'
           fn={altitudeConverter}
         />
         <Converter
-          title='Nautical Miles'
-          baseUnit='nauticalMiles'
+          title='Distance'
+          name="nauticalMiles"
+          baseUnit='nM'
           transformedUnit='km'
           fn={distanceConverter}
-        />
-        <Converter
-          title='Knots'
-          baseUnit='knots'
-          transformedUnit='km/h'
-          fn={speedConverter}
         />
       </div>
     </section>
