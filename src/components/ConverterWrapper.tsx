@@ -4,11 +4,11 @@ import {
   distanceConverter,
   speedConverter,
 } from "../utils/converterFormulas";
+import "./ConverterWrapper.scss";
 
 function ConverterWrapper() {
   return (
-    <section>
-      <h1>Flight Unit Converter</h1>
+    <section className="converter-wrapper">
       <div>
         <Converter
           title='Speed'

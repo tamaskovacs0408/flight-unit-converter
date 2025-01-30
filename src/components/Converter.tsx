@@ -1,4 +1,5 @@
 import useConverter from "../hooks/useConverter";
+import "./Converter.scss";
 
 interface ConverterProps {
   title: string;
@@ -8,11 +9,17 @@ interface ConverterProps {
   fn: (value: number) => number;
 }
 
-function Converter({ title, name, baseUnit, transformedUnit, fn }: ConverterProps) {
+function Converter({
+  title,
+  name,
+  baseUnit,
+  transformedUnit,
+  fn,
+}: ConverterProps) {
   const { setUnit, convertedUnit } = useConverter(fn);
 
   return (
-    <div>
+    <div className='converter'>
       <label htmlFor={baseUnit}>
         <h2>{title}</h2>
         <input
@@ -22,10 +29,11 @@ function Converter({ title, name, baseUnit, transformedUnit, fn }: ConverterProp
           defaultValue={0}
           onChange={e => setUnit(Number(e.target.value))}
         />
-        {baseUnit}
       </label>
-      <p>
-        {convertedUnit} {transformedUnit}
+      <span>{baseUnit}</span>
+      <p className='converted-units'>
+        <span>{convertedUnit}</span>
+        <span>{transformedUnit}</span>
       </p>
     </div>
   );

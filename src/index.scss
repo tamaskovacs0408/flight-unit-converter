@@ -10,6 +10,9 @@ html {
 
 body {
     box-sizing: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: colors.$bg-main;
     color: colors.$text-main;
     font-size: 1.8rem;
