@@ -1,5 +1,11 @@
 .converter-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    width: 50dvw;
+
+    @media (max-width: 768px) {
+        width: 100svw;
+    }
 }
