@@ -18,6 +18,22 @@ function Converter({
 }: ConverterProps) {
   const { setUnit, convertedUnit } = useConverter(fn);
 
+  let maxValue = 0;
+
+  switch (name) {
+    case "knots":
+      maxValue = 6400;
+      break;
+    case "feet":
+      maxValue = 42000;
+      break;
+    case "nauticalMiles":
+      maxValue = 6887.506;
+      break;
+    default:
+      break;
+  }
+
   return (
     <div className='converter'>
       <label htmlFor={baseUnit}>
@@ -27,6 +43,8 @@ function Converter({
           id={baseUnit}
           name={name}
           defaultValue={0}
+          min={0}
+          max={maxValue}
           onChange={e => setUnit(Number(e.target.value))}
         />
       </label>
