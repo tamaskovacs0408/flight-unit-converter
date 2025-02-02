@@ -9,7 +9,7 @@ import "./ConverterWrapper.scss";
 function ConverterWrapper() {
   return (
     <section className="converter-wrapper">
-      <div>
+      <>
         <Converter
           title='Speed'
           name="knots"
@@ -31,7 +31,7 @@ function ConverterWrapper() {
           transformedUnit='km'
           fn={distanceConverter}
         />
-      </div>
+      </>
     </section>
   );
 }
